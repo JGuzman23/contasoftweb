@@ -1,35 +1,25 @@
-# Usa una imagen base de Node.js
-FROM node:latest AS builder
-
-# Establece el directorio de trabajo
+# Etapa 1: Construir la aplicación Angular
+FROM node:18.17.1 as build
 WORKDIR /app
 
-# Copia el archivo package.json y package-lock.json para instalar dependencias
+# Copia los archivos de definición de paquetes y instala dependencias
 COPY package*.json ./
-
-# Instala las dependencias
 RUN npm install
 
-# Copia el resto de los archivos de la aplicación
+# Copia el resto de los archivos de la aplicación y construye la aplicación
 COPY . .
+RUN npm run build:ssr
 
-# Construye la aplicación Angular
-RUN npm run build
+# Etapa 2: Ejecutar la aplicación Angular con SSR en un servidor Node.js
+FROM node:18.17.1
+WORKDIR /app
 
-# ---------------
+# Copia los archivos de construcción y los node_modules desde la etapa de construcción
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/node_modules ./node_modules
 
-# Inicia un nuevo contenedor basado en Nginx
-FROM nginx:alpine
+# Exponer el puerto que tu servidor Node.js utiliza
+EXPOSE 4000
 
-# Copia los archivos construidos de la fase anterior a la carpeta de Nginx
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Copia la configuración personalizada de Nginx (si es necesario)
-COPY nginx-custom.conf /etc/nginx/conf.d/default.conf
-
-# Expone el puerto 80
-EXPOSE 80
-EXPOSE 8080
-
-# Comando para iniciar Nginx cuando se ejecute el contenedor
-CMD ["nginx", "-g", "daemon off;"]
+# Comando para ejecutar el servidor Node.js con SSR
+CMD ["node", "dist/contasoft/server/server.mjs"]

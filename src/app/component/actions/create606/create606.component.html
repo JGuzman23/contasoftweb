@@ -1,0 +1,1100 @@
+  
+    <div class="grid gap-4 mb-4 sm:grid-cols-10">
+        <div>
+            <a href="dashboard/606" class="flex  text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                  </svg>
+                  <span class="ml-2">
+                    Atras
+                  </span>
+              
+            </a> 
+        </div>
+    </div>
+    <div class="grid gap-4 mb-4 sm:grid-cols-4">
+      
+        
+        <div >
+            <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Periodo</label>
+            <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <option selected="">Selecciona un Periodo</option>
+                <option value="TV">202401</option>
+                <option value="PC">202402</option>
+                <option value="GA">202403</option>
+                <option value="PH">202404</option>
+            </select>
+        </div>
+        <div>
+            <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad</label>
+            <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+        </div>
+        <div>
+
+        </div>
+        <div>
+            <button type="button" class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+               
+               Guardar
+            </button> 
+        </div>
+       
+    </div>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                  RNC o Cedula 
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   Tipo Id
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Tipo Bienes y Servicios Comprados
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    NCF
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    NCF o Documento Modificado
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Fecha Comprobante
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Fecha pago
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Monto Facturado en Servicios
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Monto Facturado en Bienes
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Total Monto Facturado
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    ITBIS Facturado
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    ITBIS Retenido
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   ITBIS Sujeto a Proporcionalidad
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   ITBIS Llevado al Costo
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   ITBIS por Adelantar
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   ITBIS Percibido en Compras
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   Tipo de Retencion en ISR
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Monto Retencion Renta
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    ISR Percibido en compras
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Impuesto Selectivo al Consumo
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Otros Impuestos/Tasa
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Monto Propina Legal
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Forma de Pago
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <select id="category" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected=""></option>
+                                <option value="">01 - Ingresos por Operaciones</option>
+                                <option value="">02 - Ingresos Financieros</option>
+                                <option value="">03 - Ingresos Extraordinarios</option>
+                                <option value="">04 - Ingresos Por Arendamiento</option>
+                                <option value="">05 - Ingersos por Venta de Activo Depreciable</option>
+                                <option value="">06 - Otros Ingresos </option>
+
+                            </select>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <select id="category" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected=""></option>
+                                <option value="">01 - Ingresos por Operaciones</option>
+                                <option value="">02 - Ingresos Financieros</option>
+                                <option value="">03 - Ingresos Extraordinarios</option>
+                                <option value="">04 - Ingresos Por Arendamiento</option>
+                                <option value="">05 - Ingersos por Venta de Activo Depreciable</option>
+                                <option value="">06 - Otros Ingresos </option>
+
+                            </select>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="p-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>
+                        <input type="text" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                   
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                      
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+
+            </tr>
+          
+        </tbody>
+    </table>
+
+   
+</div>
+<button class="btn-wsp" > 
+    <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+    </svg>
+</button>
+
+
+
