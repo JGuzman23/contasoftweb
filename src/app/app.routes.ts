@@ -7,22 +7,22 @@ import { ClientsComponent } from './component/clients/clients.component';
 import { O606Component } from './component/operations/o606/o606.component';
 import { O607Component } from './component/operations/o607/o607.component';
 import { ConciliacionComponent } from './component/operations/conciliacion/conciliacion.component';
-import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { DefaultComponent } from './component/default/default.component';
 import { FacturacionComponent } from './component/ef/facturacion/facturacion.component';
 import { Create606Component } from './component/actions/create606/create606.component';
 import { Create607Component } from './component/actions/create607/create607.component';
-import { BankComponent } from './component/bank/bank.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { CreateconciliacionComponent } from './modals/createconciliacion/createconciliacion.component';
 import { AccountComponent } from './component/useraccount/account/account.component';
+import BankComponent from './component/bank/bank.component';
 
 
 
 export const routes: Routes = [
+    {path:'login',component:LoginComponent},
     {path:'', component:HomeComponent},
     {path:'dashboard',
-     component:SidebarComponent,
+     loadComponent:()=> import('./component/sidebar/sidebar.component').then(c=>c.SidebarComponent),
      children:[
         {path:'', component:DefaultComponent},
         {path:'clients', component:ClientsComponent},
@@ -39,7 +39,7 @@ export const routes: Routes = [
      ]
     },
     {path:'account', component:AccountComponent},
-    {path:'login',component:LoginComponent},
+   
     {path:'singup', component:RegisterComponent}
 ];
 

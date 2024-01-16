@@ -56,7 +56,7 @@
                             </ul>
                         </div>
                     </div>
-                    <app-createbank/>
+                    <app-createbank  ></app-createbank>    
                 </div>
             </div>
             <div class="overflow-x-auto">
@@ -71,9 +71,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @for (bank of banks; track bank.id) {
                         <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Banco Popular</th>
-                            <td class="px-4 py-3">0010393843</td>
+                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{bank.name}}</th>
+                            <td class="px-4 py-3">{{bank.accountNumber}}</td>
                             <td class="px-4 py-3 flex items-center">
                                 <button
                                   id="apple-imac-27-dropdown-button"
@@ -120,6 +121,7 @@
                                 </div>
                               </td>
                         </tr>
+                    }
                        
                     </tbody>
                 </table>

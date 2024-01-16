@@ -8,7 +8,7 @@
     "build:ssr": "ng build --configuration production && ng run contasoft:server:production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:contasoft": "node dist/contasoft/server/server.mjs"
+    "serve:ssr": "node dist/contasoft/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -22,8 +22,10 @@
     "@angular/platform-server": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.5",
+    "@nguniversal/express-engine": "^7.0.2",
     "express": "^4.18.2",
     "flowbite": "^2.2.1",
+    "jwt-decode": "^4.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

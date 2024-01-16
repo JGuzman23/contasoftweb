@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
 import {AuthLogin} from '../../interfaces/auth.interface'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  http = inject(HttpClient)
   public header = new HttpHeaders({
     
     'Content-Type': 'application/json'
@@ -15,20 +17,22 @@ export class AuthService {
   public httpOptions = {
     headers: this.header
   }
-  constructor(http: HttpClient) { }
+  constructor() { }
 
-  private apiUrl = 'https://localhost:44367';
+  private apiUrl = 'https://localhost:44367/api';
 
-  login( value:string, key:string): any {
-    // Construye el objeto de datos que enviarás a la API
+  login( value:string, key:string){
+    
     const data = {
       value: value,
-      password: key
+      key: key
     };
-    // let response = this.http.post<AuthLogin>(`${this.apiUrl}/login`, data,this.httpOptions);
-    // console.log(response);
     
-    // Realiza la solicitud POST a la API para el inicio de sesión
-    return data
+     this.http.post<any>(`${this.apiUrl}/Auth`, data,this.httpOptions).subscribe((res)=>{
+      localStorage.setItem('token',res.token);
+
+     });
+   
+    
   }
 }
