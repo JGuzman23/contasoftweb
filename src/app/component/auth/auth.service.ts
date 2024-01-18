@@ -4,6 +4,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import {AuthLogin} from '../../interfaces/auth.interface'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AuthService {
   }
   constructor() { }
 
-  private apiUrl = 'https://localhost:44367/api';
+  private apiUrl = environment.baseUrl
 
   login( value:string, key:string){
     
@@ -29,6 +30,8 @@ export class AuthService {
     };
     
      this.http.post<any>(`${this.apiUrl}/Auth`, data,this.httpOptions).subscribe((res)=>{
+      console.log('token',res.token);
+      
       localStorage.setItem('token',res.token);
 
      });

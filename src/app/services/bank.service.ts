@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Bank } from 'app/interfaces/bank.interface';
+import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class BankService {
 
   http = inject(HttpClient)
-  private apiUrl = 'https://localhost:44367/api';
+  private apiUrl = environment.baseUrl
 
   public header = new HttpHeaders({
     
