@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../header/header.component';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-account',
@@ -9,5 +10,6 @@ import { HeaderComponent } from '../../header/header.component';
   styleUrl: './account.component.css'
 })
 export class AccountComponent {
-
+  async ngOnInit(): Promise<void> {
+    initFlowbite();}
 }

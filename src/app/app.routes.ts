@@ -15,6 +15,8 @@ import { ContactComponent } from './component/contact/contact.component';
 import { CreateconciliacionComponent } from './modals/createconciliacion/createconciliacion.component';
 import { AccountComponent } from './component/useraccount/account/account.component';
 import BankComponent from './component/bank/bank.component';
+import { IncomeComponent } from './component/invoices/income/income.component';
+import { BillsComponent } from './component/invoices/bills/bills.component';
 
 
 
@@ -34,6 +36,8 @@ export const routes: Routes = [
         {path:'606/create', component:Create606Component},
         {path:'607/create', component:Create607Component},
         {path:'607', component:O607Component},
+        {path:'gastos', component:BillsComponent},
+        {path:'ingresos', component:IncomeComponent},
        
 
      ]

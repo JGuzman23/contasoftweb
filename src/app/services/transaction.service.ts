@@ -1,12 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Bank } from 'app/interfaces/bank.interface';
+import { Transaction } from 'app/interfaces/transaction.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BankService {
+export class TransactionService {
+
+
 
   http = inject(HttpClient)
   private apiUrl = 'https://localhost:44367/api';
@@ -21,18 +23,12 @@ export class BankService {
   constructor() { }
 
   Get(companyId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/Bank/${companyId}`);
+    return this.http.get<any>(`${this.apiUrl}/Transactions/${companyId}`);
   }
-  GetAllBanks(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/Bank`);
-  }
-  GetMyBanks(companyId:number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/Bank/${companyId}`);
-  }
-  
-  create (model:Bank): Observable<any>{
 
-    return this.http.post<any>(`${this.apiUrl}/bank`, model,this.httpOptions)
+  create (model:Transaction): Observable<any>{
+
+    return this.http.post<any>(`${this.apiUrl}/company`, model,this.httpOptions)
       
   }
 }

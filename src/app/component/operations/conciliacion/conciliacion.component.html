@@ -111,10 +111,12 @@
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th scope="col" class="px-4 py-3">Banco</th>
+                            <th scope="col" class="px-4 py-3">Banco Entrada</th>
+                            <th scope="col" class="px-4 py-3">Banco Salida</th>
                             <th scope="col" class="px-4 py-3">No. Cheque / Transaccion</th>
-                            <th scope="col" class="px-4 py-3">Fecha</th>
+                           
                             <th scope="col" class="px-4 py-3">Concepto</th>
+                            <th scope="col" class="px-4 py-3">Fecha</th>
                             <th scope="col" class="px-4 py-3">Credito</th>
                             <th scope="col" class="px-4 py-3">Debito</th>
                             <th scope="col" class="px-4 py-3">Total</th>
@@ -122,36 +124,28 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @for (Transaccion of Transactions; track $index) {
                         <tr class="border-b dark:border-gray-700">
-                            <td class="px-4 py-3">Banco Popular</td>
-                            <td class="px-4 py-3">T-0000000003</td>
-                            <td class="px-4 py-3">09/01/2023</td>
-                            <td class="px-4 py-3">Pagos de servicio</td>
-                            <td class="px-4 py-3">$ 4,000.00</td>
-                             <td class="px-4 py-3">$ 0.00</td>
-                             <td class="px-4 py-3">$ 4,000.00</td>
+                            <td class="px-4 py-3">{{Transaccion.bankNumberIn}}</td>
+                            <td class="px-4 py-3">{{Transaccion.bankNumberOut}}</td>
+                            <td class="px-4 py-3">{{Transaccion.noCheck}}</td>
+                            <td class="px-4 py-3">{{Transaccion.concept}}</td>
+                            <td class="px-4 py-3">{{Transaccion.transactionDate |  date:"dd - MM - yyyy"}}</td>
+
+                            @if (Transaccion.tipo ==="debito") {
+                                <td class="px-4 py-3">$ 0.00</td>
+                                <td class="px-4 py-3">$ {{Transaccion.amount}}</td>
+                            }
+                            @else {
+                               
+                                <td class="px-4 py-3">$ {{Transaccion.amount}}</td>
+                                <td class="px-4 py-3">$ 0.00</td>
+                            }
+                            
+                            <td class="px-4 py-3">$ {{Transaccion.total}}</td>
                            
                         </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <td class="px-4 py-3">Banco Popular</td>
-                            <td class="px-4 py-3">T-0000000002</td>
-                            <td class="px-4 py-3">09/01/2023</td>
-                            <td class="px-4 py-3">Pagos de servicio</td>
-                            <td class="px-4 py-3">$ 0.00</td>
-                             <td class="px-4 py-3">$ 2,000.00</td>
-                             <td class="px-4 py-3">$ 0.00</td>
-                           
-                        </tr>
-                        <tr class="border-b dark:border-gray-700">
-                            <td class="px-4 py-3">Banco Popular</td>
-                            <td class="px-4 py-3">T-0000000001</td>
-                            <td class="px-4 py-3">09/01/2023</td>
-                            <td class="px-4 py-3">Pagos de servicio</td>
-                            <td class="px-4 py-3">$ 2,000.00</td>
-                             <td class="px-4 py-3">$ 0.00</td>
-                             <td class="px-4 py-3">$ 2,000.00</td>
-                           
-                        </tr>
+                    }
                         
                     </tbody>
                 </table>

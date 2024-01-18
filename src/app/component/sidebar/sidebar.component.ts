@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { routes } from 'app/app.routes';
+import { initFlowbite } from 'flowbite';
 
 
 @Component({
@@ -17,8 +18,7 @@ export class SidebarComponent {
     
     
   }
-  ngOnInit(): void{
-  
-  }
+  async ngOnInit(): Promise<void> {
+    initFlowbite();}
 
 }

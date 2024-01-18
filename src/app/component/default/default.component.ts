@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-default',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './default.component.css'
 })
 export class DefaultComponent {
-
+  async ngOnInit(): Promise<void> {
+    initFlowbite();}
 }

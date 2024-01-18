@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 
 @Component({
-  selector: 'app-facturacion',
+  selector: 'app-income',
   standalone: true,
   imports: [],
-  templateUrl: './facturacion.component.html',
-  styleUrl: './facturacion.component.css'
+  templateUrl: './income.component.html',
+  styleUrl: './income.component.css'
 })
-export class FacturacionComponent {
+export class IncomeComponent {
   async ngOnInit(): Promise<void> {
     initFlowbite();}
 }

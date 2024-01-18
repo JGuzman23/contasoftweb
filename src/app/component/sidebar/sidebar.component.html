@@ -37,7 +37,7 @@
     <ul class="space-y-2">
       <li>
         <a
-        href="/dashboard"
+        routerLink="/dashboard"
           class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg
@@ -55,7 +55,7 @@
       </li>
       <li>
         <a
-        href="/dashboard/clients"
+        routerLink="/dashboard/clients"
           class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg
@@ -74,7 +74,7 @@
       </li>
       <li>
         <a
-        href="/dashboard/contact"
+        routerLink="/dashboard/contact"
           class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -85,7 +85,7 @@
       </li>
       <li>
         <a
-        href="/dashboard/bank"
+        routerLink="/dashboard/bank"
           class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -176,7 +176,7 @@
           </li>
           <li>
             <a
-              href="#"
+              routerLink="#"
               class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               > <svg class="w-[18px] h-[18px] mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 14">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.705 13H1.97A.985.985 0 0 1 1 12V2a.985.985 0 0 1 .97-1h10.814a2 2 0 0 1 1.388.56L18 5.251a2.019 2.019 0 0 1 .093 2.785l-3.91 4.308a1.998 1.998 0 0 1-1.478.656Z"/>
@@ -216,7 +216,7 @@
             ></path>
           </svg>
           <span class="flex-1 ml-3 text-left whitespace-nowrap"
-            >Registro</span
+            >Facturas</span
           >
           <svg
             aria-hidden="true"
@@ -235,14 +235,26 @@
         <ul id="dropdown-pages-r" class="hidden py-2 space-y-2">
           <li>
             <a
-            routerLink="/dashboard/606"
+            routerLink="/dashboard/ingresos"
               class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
               <svg class="w-[18px] h-[18px] mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 14">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.705 13H1.97A.985.985 0 0 1 1 12V2a.985.985 0 0 1 .97-1h10.814a2 2 0 0 1 1.388.56L18 5.251a2.019 2.019 0 0 1 .093 2.785l-3.91 4.308a1.998 1.998 0 0 1-1.478.656Z"/>
               </svg>
               
-               Facturas</a
+               Ingresos</a
+            >
+          </li>
+          <li>
+            <a
+            routerLink="/dashboard/gastos"
+              class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              >
+              <svg class="w-[18px] h-[18px] mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.705 13H1.97A.985.985 0 0 1 1 12V2a.985.985 0 0 1 .97-1h10.814a2 2 0 0 1 1.388.56L18 5.251a2.019 2.019 0 0 1 .093 2.785l-3.91 4.308a1.998 1.998 0 0 1-1.478.656Z"/>
+              </svg>
+              
+               Gastos</a
             >
           </li>
          

@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { response } from 'express';
 import { error, log } from 'console';
-import { Modal } from 'flowbite';
+import { Modal, initFlowbite } from 'flowbite';
 import { Router } from '@angular/router';
 import { Location, PlatformLocation } from '@angular/common';
 
@@ -24,13 +24,17 @@ export class HomeComponent {
 
   public companies: Company[]=[]
 
-  constructor(private companyService: CompanyService, private location: Location, private platformLocation: PlatformLocation) {
+  constructor(private companyService: CompanyService, private router:Router) {
    
   }
 
   async ngOnInit(): Promise<void> { 
-     
+
+    
+      initFlowbite();
+    localStorage.setItem('company', "")
     this.getCompanies(1)
+
     
   }
 
@@ -67,10 +71,11 @@ export class HomeComponent {
 
   ir(company:Company){
     localStorage.setItem('company', JSON.stringify(company))
-    const baseUrl= this.location.path();
-    const dashboardUrl = `${baseUrl}/dashboard`;
+    this.router.navigateByUrl('/dashboard')
+    // const baseUrl= this.location.path();
+    // const dashboardUrl = `${baseUrl}/dashboard`;
     
-    // Redirigir a la URL completa
-    window.location.href = dashboardUrl;
+    // // Redirigir a la URL completa
+    // window.location.href = dashboardUrl;
   }
 }

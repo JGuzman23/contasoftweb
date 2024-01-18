@@ -3,6 +3,7 @@ import { CreatebankComponent } from '../../modals/createbank/createbank.componen
 import { CommonModule } from '@angular/common';
 import { BankService } from 'app/services/bank.service';
 import { Bank } from 'app/interfaces/bank.interface';
+import { initFlowbite } from 'flowbite'
 
 
 @Component({
@@ -23,7 +24,7 @@ public ListaDeBancos: Bank[]=[]
  }
 
  async ngOnInit(): Promise<void> { 
-  
+  initFlowbite()
   var company = localStorage.getItem('company') || ''
   var jsonCompany = JSON.parse(company)
 
