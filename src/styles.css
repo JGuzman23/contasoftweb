@@ -4,6 +4,7 @@
 @tailwind utilities;
 /* @import 'ngx-toastr/toastr'; */
 
-.yourclass.toast-success {
-    background-color:#1E429F
-  }
+#toast-top-right {
+  z-index: 9999; /* Puedes ajustar este valor según sea necesario */
+  /* Tus estilos existentes van aquí */
+}

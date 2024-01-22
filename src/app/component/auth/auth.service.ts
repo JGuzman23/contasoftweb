@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import {AuthLogin} from '../../interfaces/auth.interface'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'environments/environment';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+
+
 
 
 @Injectable({
@@ -14,8 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   http = inject(HttpClient)
-  router = inject(Router)
-  toastr= inject(ToastrService) 
+
+
 
   public header = new HttpHeaders({
     
@@ -28,26 +28,14 @@ export class AuthService {
 
   private apiUrl = environment.baseUrl
 
-  login( value:string, key:string){
+  login( value:string, key:string):Observable<any>{
     
     const data = {
       value: value,
       key: key
     };
     
-     this.http.post<any>(`${this.apiUrl}/Auth`, data,this.httpOptions).subscribe((res)=>{
-     
-      
-      if(res.success){
-        localStorage.setItem('token',res.data.token);
-        localStorage.setItem('userID',res.data.id);
-        this.router.navigateByUrl('');
-      }else{
-        this.toastr.error(res.message, '');
-      }
-   
-
-     });
+    return this.http.post<any>(`${this.apiUrl}/Auth`, data,this.httpOptions)
    
     
   }
