@@ -18,18 +18,20 @@ export const loggerInterceptor: HttpInterceptorFn = (req, next) => {
     '/register', // Añade aquí otras rutas que deseas excluir
   ];
 
-  console.log('req.url', req.url);
+
   
   // Verifica si la URL actual debe ser excluida
   if (excludedUrls.some(url => req.url.includes(url))) {
-    console.log('exluidas');
+   
     
     // Si la URL está excluida, simplemente pasa la solicitud sin modificar
     return next(req);
   }
-
-  const token = localStorage.getItem('token');
-  console.log(token);
+  let token
+  if (typeof localStorage !== 'undefined') {
+  token = localStorage.getItem('token');
+  }
+  
 
   if (!token) {
     router.navigateByUrl('/login');
@@ -58,7 +60,7 @@ export const loggerInterceptor: HttpInterceptorFn = (req, next) => {
 
   const clonedReq = req.clone({
     setHeaders: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer `,
     },
   });
 

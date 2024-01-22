@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Bank } from 'app/interfaces/bank.interface';
 import { BankService } from 'app/services/bank.service';
 import { Modal } from 'flowbite';
+
 
 @Component({
   selector: 'app-createbank',
@@ -13,7 +14,8 @@ import { Modal } from 'flowbite';
   styleUrl: './createbank.component.css',
 })
 export class CreatebankComponent {
-  
+  @Output() createBank: EventEmitter<Bank> = new EventEmitter<Bank>();
+
   public nuevoBanco:Bank ={
     id: 0,
     accountNumber: '',
@@ -24,50 +26,27 @@ export class CreatebankComponent {
   public bancos:Bank[]=[]
 
  
-  constructor(private bankService:BankService) {
+  constructor(private bankService:BankService,) {
    
   }
   public modal?: Modal; 
 
   async ngOnInit(): Promise<void> { 
-    this.bankService.GetAllBanks().subscribe(
-    (response)=>{
-      console.log(response.data);
-      this.bancos = response.data
-    }
-   )
-  
-   
-  //  this.bancos.forEach(e=>{
-  //   console.log(e);
-    
-  // })
-    
-    // const $targetEl = document.getElementById('defaultModal');
-    // const options = {
-    //   backdropClasses: 'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
-    //   closable: true,
-    //   onHide: () => {
-    //     console.log('modal is hidden');
-    //   },
-    //   onShow: () => {
-    //     console.log('modal is shown');
-    //   },
-    //   onToggle: () => {
-    //     console.log('modal has been toggled');
-    //   },
-    // };
-    // const instanceOptions = {
-    //   id: 'defaultModal',
-    //   override: true,
-    // };
-    // this.modal = new Modal($targetEl, options, instanceOptions); 
-
-  
+ 
+    this.getAllBanks()
   }
+  getAllBanks(){
+    this.bankService.GetAllBanks().subscribe(
+      (response)=>{
+       
+        this.bancos = response.data
+      }
+     )
+  }
+
   asignar(){
-    console.log(this.nuevoBanco);
-    
+
+    this.createBank.emit(this.nuevoBanco)
   }
 
   abrirModal() {

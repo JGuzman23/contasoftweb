@@ -32,7 +32,9 @@ export class HomeComponent {
 
     
       initFlowbite();
+      if (typeof localStorage !== 'undefined') {
     localStorage.setItem('company', "")
+      }
     this.getCompanies(1)
 
     
@@ -43,9 +45,7 @@ export class HomeComponent {
      this.companyService.Get(userId)
     .subscribe(
       (response) => {
-        console.log(response);
-        
-        // Manejar la respuesta de la solicitud HTTP aquí
+    
         this.companies = response.data
       },
       (error) => {

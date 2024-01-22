@@ -14,7 +14,6 @@ export class CreatecompanyComponent {
 
   @Output() createCompany: EventEmitter<Company> = new EventEmitter<Company>();
 
-
   public newCompany:Company =   {
     id: 0,
     userid: 1,
@@ -23,13 +22,9 @@ export class CreatecompanyComponent {
     address: '',
     telefono: '',
     photo: '',
-   
-    
   }
 
   constructor() {
-   
-    
   }
 
   create()

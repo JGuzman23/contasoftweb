@@ -31,7 +31,7 @@ export class BankService {
     return this.http.get<any>(`${this.apiUrl}/Bank/${companyId}`);
   }
   
-  create (model:Bank): Observable<any>{
+  asingnar (model:Bank): Observable<any>{
 
     return this.http.post<any>(`${this.apiUrl}/bank`, model,this.httpOptions)
       

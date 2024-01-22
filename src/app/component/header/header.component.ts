@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { initFlowbite } from 'flowbite';
 
 @Component({
@@ -6,19 +7,31 @@ import { initFlowbite } from 'flowbite';
   standalone: true,
   imports: [],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  public companyName = '';
 
-  public companyName=''
-  async ngOnInit(): Promise<void> { 
-  
-      initFlowbite();
-  var company = localStorage.getItem('company') || ''
-  var jsonCompany = JSON.parse(company)
+  constructor(private router: Router) {}
 
-  if(jsonCompany.name){
-    this.companyName = jsonCompany.name
+  async ngOnInit(): Promise<void> {
+    console.log('heo');
+    
+    initFlowbite();
+    var company = localStorage.getItem('company') || '';
+    var jsonCompany = JSON.parse(company);
+
+    if (jsonCompany.name) {
+      this.companyName = jsonCompany.name;
+    }
   }
-}
+
+
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('company');
+    localStorage.removeItem('userID');
+    this.router.navigateByUrl('/login');
+  }
 }

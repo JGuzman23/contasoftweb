@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private router:Router) {}
+  constructor(private authService: AuthService) {}
 
   user={
     email:'',
@@ -21,11 +21,11 @@ export class LoginComponent {
   
   login() {
 
-    console.log('heo');
+  
     
     this.authService.login(this.user.email, this.user.password);
     
-     this.router.navigateByUrl('/')
+ 
    
   }
 }

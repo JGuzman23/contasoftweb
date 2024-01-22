@@ -19,7 +19,7 @@ export class RegisterComponent {
   }
 
   registrar(){
-    console.log(this.newuser);
+    
     
   }
 }

@@ -2,3 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @import 'ngx-toastr/toastr'; */
+
+.yourclass.toast-success {
+    background-color:#1E429F
+  }

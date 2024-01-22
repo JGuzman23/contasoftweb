@@ -3,64 +3,81 @@ import { CreatebankComponent } from '../../modals/createbank/createbank.componen
 import { CommonModule } from '@angular/common';
 import { BankService } from 'app/services/bank.service';
 import { Bank } from 'app/interfaces/bank.interface';
-import { initFlowbite } from 'flowbite'
-
+import { initFlowbite } from 'flowbite';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-bank',
   standalone: true,
-  imports: [CommonModule,CreatebankComponent],
+  imports: [CommonModule, CreatebankComponent],
   templateUrl: './bank.component.html',
-  styleUrl: './bank.component.css'
+  styleUrl: './bank.component.css',
 })
 export default class BankComponent {
+  public banks: Bank[] = [];
+  public ListaDeBancos: Bank[] = [];
 
-public banks: Bank[]=[]
-public ListaDeBancos: Bank[]=[]
+  constructor(
+    private bankService: BankService,
+    // private toastr: ToastrService
+  ) {}
 
+  async ngOnInit(): Promise<void> {
+    initFlowbite();
+    var company = localStorage.getItem('company') || '';
+    var jsonCompany = JSON.parse(company);
 
- constructor(private bankService:BankService) {
-  
- }
+    if (jsonCompany.id) {
+      this.getAllBankByCompany(jsonCompany.id);
+    }
 
- async ngOnInit(): Promise<void> { 
-  initFlowbite()
-  var company = localStorage.getItem('company') || ''
-  var jsonCompany = JSON.parse(company)
+    // this.ListaDeBancos = await this.bankService.getAllBanks()
 
-  if(jsonCompany.id){
-    this.getAllBankByCompany(jsonCompany.id)
+    // await this.bankService.GetAllBanks().subscribe((response) => {
+
+    //   this.ListaDeBancos = response.data
+    // },
+    // (error) => {
+    //   // Manejar errores aquí
+    //   console.error('Error al obtener la compañía:', error);
+    // }
+    //);
   }
 
-  // this.ListaDeBancos = await this.bankService.getAllBanks()
+  getAllBankByCompany(companyId: number) {
+    this.bankService.Get(companyId).subscribe(
+      (response) => {
+        // Manejar la respuesta de la solicitud HTTP aquí
+        this.banks = response.data;
+      },
+      (error) => {
+        // Manejar errores aquí
+        console.error('Error al obtener la compañía:', error);
+      }
+    );
+  }
 
-  // await this.bankService.GetAllBanks().subscribe((response) => {
-     
-  //   this.ListaDeBancos = response.data
-  // },
-  // (error) => {
-  //   // Manejar errores aquí
-  //   console.error('Error al obtener la compañía:', error);
-  // }
-//);
-  
-}
+  createBankAsync(model: Bank) {
+    var company = localStorage.getItem('company') || '';
+    var jsonCompany = JSON.parse(company);
+    if (jsonCompany) {
+      model.companyId = jsonCompany.id;
+      this.bankService.asingnar(model).subscribe(
+        (response) => {
+          if (response.success) {
+            // this.toastr.success('agregado', '', {
+            //   toastClass: 'yourclass ngx-toastr',
+            // });
 
-
- getAllBankByCompany(companyId: number){
-
-  this.bankService.Get(companyId).subscribe(
-    (response) => {
-     
-      
-      // Manejar la respuesta de la solicitud HTTP aquí
-      this.banks = response.data
-    },
-    (error) => {
-      // Manejar errores aquí
-      console.error('Error al obtener la compañía:', error);
+            this.getAllBankByCompany(jsonCompany.id);
+          }
+        },
+        (error) => {
+          console.log(error);
+          
+          //this.toastr.error('Error al crear!', '');
+        }
+      );
     }
-  );
- }
-  
+  }
 }

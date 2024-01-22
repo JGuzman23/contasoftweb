@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Bank } from 'app/interfaces/bank.interface';
 import { Transaction } from 'app/interfaces/transaction.interface';
 import { BankService } from 'app/services/bank.service';
 import { initFlowbite } from 'flowbite'
+
 
 
 @Component({
@@ -16,7 +17,8 @@ import { initFlowbite } from 'flowbite'
 export class CreateconciliacionComponent {
   public mybanks: Bank[] = [];
   public jo:[]=[]
-  selectedDate: Date = new Date();
+  public selectedDate?: string 
+
 
   public newTransaction: Transaction = {
     id: 0,
@@ -30,16 +32,18 @@ export class CreateconciliacionComponent {
     companyId: 0,
     total: 0,
   };
-  constructor(private bankService: BankService) {}
+  constructor(private bankService: BankService,private elementRef: ElementRef) {}
 
   async ngOnInit(): Promise<void> {
     initFlowbite();
+
+   
     var company = localStorage.getItem('company') || '';
     var jsonCompany = JSON.parse(company);
 
     if (jsonCompany.id) {
       this.bankService.GetMyBanks(jsonCompany.id).subscribe((response) => {
-        console.log(response.data);
+        
         this.mybanks = response.data;
       });
     }
@@ -48,9 +52,13 @@ export class CreateconciliacionComponent {
 
   create(){
    
-    console.log('ngmodel ',this.jo);
-    var eso = document.getElementById('datepicker')?.ariaValueText
-
+    console.log(this.selectedDate);
+    
+    var eso = document.getElementById('datepicker')
+    
+    const datepickerElement = this.elementRef.nativeElement.querySelector('.datepicker input').value;
+    console.log(datepickerElement);
+   
  
   }
 
@@ -60,7 +68,7 @@ export class CreateconciliacionComponent {
   }
 
   onChangeDate() {
-    console.log('event');
+   
     
   }
 }
