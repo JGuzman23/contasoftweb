@@ -21,57 +21,408 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="#">
+            
+
+<div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+        <li class="me-2" role="presentation">
+            <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Factura</button>
+        </li>
+        <li class="me-2" role="presentation">
+            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Avanzado 1</button>
+        </li>
+        <li class="me-2" role="presentation">
+            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Avanzado 2</button>
+        </li>
+        
+    </ul>
+</div>
+<div id="default-tab-content">
+    <form action="#">
+    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        
+        <div class="grid gap-4 mb-4 sm:grid-cols-2">
+            <div>
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RNC</label>
+                <input [(ngModel)]="newInvoice.rncCedulaPasaporte" type="text" name="rnc" id="rnc" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="RNC del vendedor" required>
+            </div>
+            
+            <div>
+
+                <label
+                for="category"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Tipo de Bienes y Servicios</label
+              >
+                <select
+                name="tipoBienesYServiciosComprados"
+                [(ngModel)]="newInvoice.tipoBienesYServiciosComprados"
+                id="tipoBienesYServiciosComprados"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              >
+                <option selected="">--Selecciona--</option>
+                @for (bienesyservicio of ListTipoBienesyServicios; track $index) {
+  
+                <option [value]="bienesyservicio.id">{{ bienesyservicio.valor }}</option>
+                }
+              </select>
+            </div>
+            <div>
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NCF</label>
+                <input [(ngModel)]="newInvoice.numeroComprobanteFiscal" type="text" name="numeroComprobanteFiscal" id="numeroComprobanteFiscal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="NCF del vendedor" required="">
+            </div>
+
+            <div>
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de comprobante</label>
+                <input [(ngModel)]="newInvoice.fechaComprobante" type="text" name="fechaComprobante" id="fechaComprobante" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="dd/MM/yyyy" required="">
+            </div>
+            <div>
+
+                <label
+                for="category"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Bien o Servicio?</label
+              >
+                <select
+                name="bienoservicio"
+                [(ngModel)]="bienoservicio"
+                id="bienoservicio"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              >
+                <option selected="">--Selecciona--</option>
+                <option value="1">Servicio</option>
+                <option value="2">Bien</option>
+              </select>
+            </div>
+            
+            @if (bienoservicio ==1) {
+                <div>
+                    <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Facturado (Servicio)</label>
+                    <input [(ngModel)]="newInvoice.montoFacturadoEnServicio" type="number" name="montoFacturadoEnServicio" id="montoFacturadoEnServicio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                </div>
+            }
+            @else if (bienoservicio ==2) {
+                <div>
+                    <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Facturado (Bien)</label>
+                    <input [(ngModel)]="newInvoice.montoFacturadoEnBienes" type="number" name="montoFacturadoEnBienes" id="montoFacturadoEnBienes" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                </div>
+            }
+
+            <div>
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Monto Facturado</label>
+                <input [(ngModel)]="newInvoice.totalMontoFacturado" type="number" name="totalMontoFacturado" id="totalMontoFacturado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+            </div>
+           
+           
+            <div>
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Facturado</label>
+                <input [(ngModel)]="newInvoice.itbisFacturado" type="number" name="iTBISFacturado" id="iTBISFacturado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+            </div>
+          
+            <div>
+
+                <label
+                for="category"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Forma de Pago</label
+              >
+                <select
+                name="formaDePago"
+                [(ngModel)]="newInvoice.formaDePago"
+                id="bank"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              >
+                
+                @for (forma of FormaPago; track $index) {
+  
+                <option [value]="forma.id">{{ forma.valor }}</option>
+                }
+              </select>
+            </div>
+        </div>
+    </div>
+    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+        <div class="grid gap-4 mb-4 sm:grid-cols-2">
+
+        <div>
+            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NCF Modificado</label>
+            <input [(ngModel)]="newInvoice.numeroComprobanteFiscalModificado" type="text" name="numeroComprobanteFiscalModificado" id="numeroComprobanteFiscalModificado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+        </div>
+       
+        <div>
+            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha Pago</label>
+            <input [(ngModel)]="newInvoice.fechaPago" type="text" name="fechaPago" id="fechaPago" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+        </div>
+       
+       
+        <div>
+            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Retenido</label>
+            <input [(ngModel)]="newInvoice.itbisRetenido" type="number" name="iTBISRetenido" id="iTBISRetenido" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+        </div>
+
+        <div>
+            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Sujeto a Proporcionalidad</label>
+            <input [(ngModel)]="newInvoice.itbisSujetoaProporcionalidad" type="number" name="iTBISSujetoaProporcionalidad" id="iTBISSujetoaProporcionalidad" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+        </div>
+       
+       
+        <div>
+            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Llevado Al Costo</label>
+            <input [(ngModel)]="newInvoice.itbisLlevadoAlCosto" type="number" name="iTBISLlevadoAlCosto" id="iTBISLlevadoAlCosto" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+        </div>
+
+        <div>
+            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Por Adelantar</label>
+            <input [(ngModel)]="newInvoice.itbisPorAdelantar" type="number" name="iTBISPorAdelantar" id="iTBISPorAdelantar" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+        </div>
+       
+       
+        <div>
+            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Persivido En Compras</label>
+            <input [(ngModel)]="newInvoice.itbisPersividoEnCompras" type="number" name="iTBISPersividoEnCompras" id="iTBISPersividoEnCompras" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+        </div>
+        <div>
+            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo Retencion En ISR</label>
+            <input [(ngModel)]="newInvoice.tipoRetencionEnISR" type="number" name="tipoRetencionEnISR" id="tipoRetencionEnISR" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+        </div>
+    </div>
+       
+    </div>
+    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+        
+        <div class="grid gap-4 mb-4 sm:grid-cols-2">
+
+            <div>
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Retencion Renta</label>
+                <input [(ngModel)]="newInvoice.montoRetencionRenta" type="number" name="montoRetencionRenta" id="montoRetencionRenta" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+            </div>
+            <div>
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">IRS Percibido En Compras</label>
+                <input [(ngModel)]="newInvoice.irsPercibidoEnCompras" type="number" name="iRSPercibidoEnCompras" id="iRSPercibidoEnCompras" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+            </div>
+           
+           
+            <div>
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Impuesto Selectivo AlConsumo</label>
+                <input [(ngModel)]="newInvoice.impuestoSelectivoAlConsumo" type="number" name="impuestoSelectivoAlConsumo" id="impuestoSelectivoAlConsumo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+            </div>
+            <div>
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Otros Impuestos Tasa</label>
+                <input [(ngModel)]="newInvoice.otrosImpuestosTasa" type="number" name="otrosImpuestosTasa" id="otrosImpuestosTasa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+            </div>
+           
+           
+            <div>
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Propina Legal</label>
+                <input [(ngModel)]="newInvoice.montoPropinaLegal" type="number" name="montoPropinaLegal" id="montoPropinaLegal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+            </div>
+
+        </div>
+    </div>
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <button type="button" data-modal-toggle="defaultModal" (click)="create()" class=" text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+            <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+            Crear 
+        </button>
+        
+
+    </div>
+</form>
+  
+</div>
+
+            <!-- <form action="#">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RNC</label>
-                        <input [(ngModel)]="newInvoice.rnc" type="text" name="rnc" id="rnc" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="RNC del vendedor" required>
+                        <input [(ngModel)]="newInvoice.rNCCedulaPasaporte" type="text" name="rnc" id="rnc" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="RNC del vendedor" required>
+                    </div>
+                    
+                    <div>
+
+                        <label
+                        for="category"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Tipo de Bienes y Servicios</label
+                      >
+                        <select
+                        name="tipoBienesYServiciosComprados"
+                        [(ngModel)]="newInvoice.tipoBienesYServiciosComprados"
+                        id="tipoBienesYServiciosComprados"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      >
+                        <option selected="">--Selecciona--</option>
+                        @for (bienesyservicio of ListTipoBienesyServicios; track $index) {
+          
+                        <option [value]="bienesyservicio.id">{{ bienesyservicio.valor }}</option>
+                        }
+                      </select>
                     </div>
                     <div>
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NCF</label>
-                        <input [(ngModel)]="newInvoice.ncf" type="text" name="ncf" id="ncf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="NCF del vendedor" required="">
-                    </div>
-                    <div>
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Itebis</label>
-                        <input [(ngModel)]="newInvoice.itbis" type="number" name="itbis" id="itbis" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
-                    </div>
-                    <div>
-                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Total</label>
-                        <input [(ngModel)]="newInvoice.monto" type="number" name="monto" id="monto" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        <input [(ngModel)]="newInvoice.numeroComprobanteFiscal" type="text" name="numeroComprobanteFiscal" id="numeroComprobanteFiscal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="NCF del vendedor" required="">
                     </div>
 
                     <div>
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha</label>
-                        <input [(ngModel)]="newInvoice.fecha" type="text" name="fecha" id="fecha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="dd/MM/yyyy" required="">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de comprobante</label>
+                        <input [(ngModel)]="newInvoice.fechaComprobante" type="text" name="fechaComprobante" id="fechaComprobante" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="dd/MM/yyyy" required="">
                     </div>
                     <div>
 
                         <label
                         for="category"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Tipo de Pago</label
+                        >Bien o Servicio?</label
                       >
                         <select
-                        name="bank"
-                        [(ngModel)]="newInvoice.tipoPago"
+                        name="bienoservicio"
+                        [(ngModel)]="newInvoice.bienoservicio"
+                        id="bienoservicio"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      >
+                        <option selected="">--Selecciona--</option>
+                        <option value="1">Servicio</option>
+                        <option value="2">Bien</option>
+                      </select>
+                    </div>
+                    
+                    @if (newInvoice.bienoservicio ==1) {
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Facturado (Servicio)</label>
+                            <input [(ngModel)]="newInvoice.montoFacturadoEnServicio" type="number" name="montoFacturadoEnServicio" id="montoFacturadoEnServicio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                    }
+                    @else if (newInvoice.bienoservicio ==2) {
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Facturado (Bien)</label>
+                            <input [(ngModel)]="newInvoice.montoFacturadoEnBienes" type="number" name="montoFacturadoEnBienes" id="montoFacturadoEnBienes" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                    }
+
+                    <div>
+                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Monto Facturado</label>
+                        <input [(ngModel)]="newInvoice.totalMontoFacturado" type="number" name="totalMontoFacturado" id="totalMontoFacturado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                    </div>
+                   
+                   
+                    <div>
+                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Facturado</label>
+                        <input [(ngModel)]="newInvoice.iTBISFacturado" type="number" name="iTBISFacturado" id="iTBISFacturado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                    </div>
+                  
+                    <div>
+
+                        <label
+                        for="category"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Forma de Pago</label
+                      >
+                        <select
+                        name="formaDePago"
+                        [(ngModel)]="newInvoice.formaDePago"
                         id="bank"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       >
-                        <option selected="">Select category</option>
-                        @for (bank of ListaTiposPagos; track $index) {
+                        
+                        @for (forma of FormaPago; track $index) {
           
-                        <option [value]="bank">{{ bank }}</option>
+                        <option [value]="forma.id">{{ forma.valor }}</option>
                         }
                       </select>
                     </div>
+
+
+
+                    
+                    @if(avanzado){
+
+                        
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NCF Modificado</label>
+                            <input [(ngModel)]="newInvoice.numeroComprobanteFiscalModificado" type="number" name="numeroComprobanteFiscalModificado" id="numeroComprobanteFiscalModificado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                       
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha Pago</label>
+                            <input [(ngModel)]="newInvoice.fechaPago" type="number" name="fechaPago" id="fechaPago" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                       
+                       
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Retenido</label>
+                            <input [(ngModel)]="newInvoice.iTBISRetenido" type="number" name="iTBISRetenido" id="iTBISRetenido" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Sujeto a Proporcionalidad</label>
+                            <input [(ngModel)]="newInvoice.iTBISSujetoaProporcionalidad" type="number" name="iTBISSujetoaProporcionalidad" id="iTBISSujetoaProporcionalidad" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                       
+                       
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Llevado Al Costo</label>
+                            <input [(ngModel)]="newInvoice.iTBISLlevadoAlCosto" type="number" name="iTBISLlevadoAlCosto" id="iTBISLlevadoAlCosto" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Por Adelantar</label>
+                            <input [(ngModel)]="newInvoice.iTBISPorAdelantar" type="number" name="iTBISPorAdelantar" id="iTBISPorAdelantar" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                       
+                       
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ITBIS Persivido En Compras</label>
+                            <input [(ngModel)]="newInvoice.iTBISPersividoEnCompras" type="number" name="iTBISPersividoEnCompras" id="iTBISPersividoEnCompras" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo Retencion En ISR</label>
+                            <input [(ngModel)]="newInvoice.tipoRetencionEnISR" type="number" name="tipoRetencionEnISR" id="tipoRetencionEnISR" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                       
+                       
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Retencion Renta</label>
+                            <input [(ngModel)]="newInvoice.montoRetencionRenta" type="number" name="montoRetencionRenta" id="montoRetencionRenta" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">IRS Percibido En Compras</label>
+                            <input [(ngModel)]="newInvoice.iRSPercibidoEnCompras" type="number" name="iRSPercibidoEnCompras" id="iRSPercibidoEnCompras" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                       
+                       
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Impuesto Selectivo AlConsumo</label>
+                            <input [(ngModel)]="newInvoice.impuestoSelectivoAlConsumo" type="number" name="impuestoSelectivoAlConsumo" id="impuestoSelectivoAlConsumo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Otros Impuestos Tasa</label>
+                            <input [(ngModel)]="newInvoice.otrosImpuestosTasa" type="number" name="otrosImpuestosTasa" id="otrosImpuestosTasa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+                       
+                       
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monto Propina Legal</label>
+                            <input [(ngModel)]="newInvoice.montoPropinaLegal" type="number" name="montoPropinaLegal" id="montoPropinaLegal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required="">
+                        </div>
+    
+                    }
+                  
                    
                 </div>
 
-                <button type="button" data-modal-toggle="defaultModal" (click)="create()" class="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                    <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                    Crear 
-                </button>
-            </form>
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <button type="button" data-modal-toggle="defaultModal" (click)="create()" class=" text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                        <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                        Crear 
+                    </button>
+                    
+                    <button  type="button" (click)="avanzadoHandler()"  class="  text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Avanzado</button>
+    
+                </div>
+               
+               
+
+            </form> -->
         </div>
     </div>
 </div>
