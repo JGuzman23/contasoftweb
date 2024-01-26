@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { InvoiceBill } from 'app/interfaces/bill.interface';
+import { Create606Component } from 'app/modals/create606/create606.component';
 import { CreateinvoiceBillsComponent } from 'app/modals/createinvoice-bills/createinvoice-bills.component';
 import { InvoiceService } from 'app/services/invoice.service';
-import { error, log } from 'console';
-import { response } from 'express';
-import { initFlowbite } from 'flowbite';
+
+import { initFlowbite,initModals } from 'flowbite';
 
 @Component({
   selector: 'app-bills',
@@ -18,12 +18,27 @@ export class BillsComponent {
   
   
   public bills : InvoiceBill[]=[]
+  public isError: boolean = false
+  public isSuccess: boolean = false
+  public mensaje =''
+
+  mostrarModal: boolean = false;
   constructor(private invoiceService: InvoiceService) {}
 
   async ngOnInit(): Promise<void> {
-    initFlowbite();
-    this.getAllInvoiceByCompany()
     
+    this.getAllInvoiceByCompany()
+    initFlowbite();
+    initModals();
+    
+  }
+
+  
+
+  toggleModal(billId: number) {
+    this.mostrarModal = !this.mostrarModal;
+
+
   }
 
   getAllInvoiceByCompany(){
@@ -52,7 +67,22 @@ export class BillsComponent {
       this.invoiceService.createInvoice606(model).subscribe(
         (response) => {
           
+          if (response.success) {
+            this.isSuccess = true
+            this.mensaje = response.message
+            setTimeout(() => {
+            this.isSuccess = false 
+          }, 3500);
+  
           this.getAllInvoiceByCompany()
+          }else{
+            this.isError = true
+            this.mensaje = response.message
+            setTimeout(() => {
+            this.isError = false 
+          }, 3500);
+          }
+          
         },
         (error) => {
           console.log(error);

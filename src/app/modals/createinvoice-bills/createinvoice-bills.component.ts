@@ -96,32 +96,37 @@ export class CreateinvoiceBillsComponent {
       valor: 'Efectivo',
     },
     {
-      id: 1,
+      id: 2,
       valor: 'Cheque/Tranferencia/Deposito',
     },
     {
-      id: 1,
+      id: 3,
       valor: 'Tarjeta credito/debito',
     },
     {
-      id: 1,
+      id: 4,
       valor: 'Compra a credito',
     },
     {
-      id: 1,
+      id: 5,
       valor: 'Permuta',
     },
     {
-      id: 1,
+      id: 6,
       valor: 'Nota Credito',
     },
     {
-      id: 1,
+      id: 7,
       valor: 'Mixto',
     },
   ];
 
   create() {
+    if(this.newInvoice.rncCedulaPasaporte?.length ==11){
+      this.newInvoice.tipoID =2
+    }else if(this.newInvoice.rncCedulaPasaporte?.length ==9){
+      this.newInvoice.tipoID =1
+    }
     this.crearFactura.emit(this.newInvoice);
   }
 }

@@ -21,7 +21,7 @@ export class BankService {
   }
   constructor() { }
 
-  Get(companyId: number): Observable<any> {
+  async Get(companyId: number): Promise<Observable<any>> {
     return this.http.get<any>(`${this.apiUrl}/Bank/${companyId}`);
   }
   GetAllBanks(): Observable<any> {

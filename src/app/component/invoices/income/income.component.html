@@ -225,23 +225,29 @@
             <thead
               class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
             >
+
               <tr>
-                <th scope="col" class="px-4 py-3">Año Mes</th>
-                <th scope="col" class="px-4 py-3">Cantidad de Registros</th>
-                <th scope="col" class="px-4 py-3">Fecha de Creacion</th>
+                <th scope="col" class="px-4 py-3">#</th>
+                <th scope="col" class="px-4 py-3">RNC</th>
+                <th scope="col" class="px-4 py-3">NCF</th>
+                <th scope="col" class="px-4 py-3">Monto Total</th>
+                <th scope="col" class="px-4 py-3">Fecha de Factura</th>
                 <th scope="col" class="px-4 py-3">Acciones</th>
               </tr>
             </thead>
             <tbody>
+              @for (income of incomes; track $index) {
               <tr class="border-b dark:border-gray-700">
                 <th
                   scope="row"
                   class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  202401
+                  {{income.id}}
                 </th>
-                <td class="px-4 py-3">12</td>
-                <td class="px-4 py-3">12/01/2024</td>
+                <td class="px-4 py-3">{{income.rNCCedulaPasaporte}}</td>
+                <td class="px-4 py-3">{{income.numeroComprobanteFiscal}}</td>
+                <td class="px-4 py-3">{{income.montoFacturado}}</td>
+                <td class="px-4 py-3">{{income.fechaComprobante}}</td>
   
                 <td class="px-4 py-3 flex items-center">
                   <button
@@ -295,6 +301,7 @@
                   </div>
                 </td>
               </tr>
+            }
             </tbody>
           </table>
         </div>

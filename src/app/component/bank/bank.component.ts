@@ -19,6 +19,13 @@ export default class BankComponent {
   public isError: boolean = false
   public isSuccess: boolean = false
   public mensaje =''
+  
+
+  datosPaginados: Bank[] = [];
+  paginaActual = 1;
+  tamanoPagina = 8;
+  hasta =0
+
   constructor(
     private bankService: BankService,
     // private toastr: ToastrService
@@ -30,27 +37,45 @@ export default class BankComponent {
     var jsonCompany = JSON.parse(company);
 
     if (jsonCompany.id) {
-      this.getAllBankByCompany(jsonCompany.id);
+      await this.getAllBankByCompany(jsonCompany.id);
+      
     }
 
-    // this.ListaDeBancos = await this.bankService.getAllBanks()
-
-    // await this.bankService.GetAllBanks().subscribe((response) => {
-
-    //   this.ListaDeBancos = response.data
-    // },
-    // (error) => {
-    //   // Manejar errores aquí
-    //   console.error('Error al obtener la compañía:', error);
-    // }
-    //);
+    
   }
 
-  getAllBankByCompany(companyId: number) {
-    this.bankService.Get(companyId).subscribe(
+  obtenerDatosPaginados(datos: Bank[], pagina: number, tamanoPagina: number): Bank[] {
+
+   this.hasta= Math.min(this.paginaActual * tamanoPagina, this.banks.length)
+    const inicio = (pagina - 1) * tamanoPagina;
+    const fin = inicio + tamanoPagina;
+    console.log(datos);
+    
+    return datos.slice(inicio, fin);
+    
+  }
+
+  async actualizarDatosPaginados() {
+    
+    this.datosPaginados = this.obtenerDatosPaginados(
+      this.banks,
+      this.paginaActual,
+      this.tamanoPagina
+    );
+   
+    
+  }
+  cambiarPagina(pagina: number) {
+    this.paginaActual = pagina;
+    this.actualizarDatosPaginados();
+  }
+
+  async getAllBankByCompany(companyId: number) {
+     (await this.bankService.Get(companyId)).subscribe(
       (response) => {
         
         this.banks = response.data;
+         this.actualizarDatosPaginados()
       },
       (error) => {
         

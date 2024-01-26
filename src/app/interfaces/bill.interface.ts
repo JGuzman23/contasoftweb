@@ -1,5 +1,3 @@
-import { Company } from "./company.interface";
-
 export interface InvoiceBill {
   id: number;
   tipoID: number; //O

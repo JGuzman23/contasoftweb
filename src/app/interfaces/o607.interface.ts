@@ -1,4 +1,4 @@
-export interface O606  {
+export interface O607 {
     id: number;
     name: string;
     yearMonth: string | null;
@@ -6,5 +6,4 @@ export interface O606  {
     companyId: number;
     createDate:string;
     isActive:boolean
-    
 }
