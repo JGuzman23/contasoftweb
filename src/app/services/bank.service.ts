@@ -36,4 +36,12 @@ export class BankService {
     return this.http.post<any>(`${this.apiUrl}/bank`, model,this.httpOptions)
       
   }
+
+  updateMyBank( updatedData: Bank): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/Bank/${updatedData.bankSelectedID}`, updatedData);
+  }
+
+  deleteMyBank(companyId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/Bank/${companyId}`);
+  }
 }

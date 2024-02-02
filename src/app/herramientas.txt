@@ -1,0 +1,10 @@
+// @HostListener('window:scroll', ['$event'])
+  // onScroll() {
+
+  //   console.log(window.innerHeight+ window.scrollY+15,document.body.offsetHeight);
+    
+  //   if ((window.innerHeight + window.scrollY +15) >= document.body.offsetHeight) {
+  //    console.log('pagina 2');
+     
+  //   }
+  // }

@@ -15,7 +15,6 @@ export class HeaderComponent {
   constructor(private router: Router) {}
 
   async ngOnInit(): Promise<void> {
-    console.log('heo');
     
     initFlowbite();
     var company = localStorage.getItem('company') || '';

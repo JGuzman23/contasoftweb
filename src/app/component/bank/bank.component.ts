@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CreatebankComponent } from '../../modals/createbank/createbank.component';
 import { CommonModule } from '@angular/common';
 import { BankService } from 'app/services/bank.service';
 import { Bank } from 'app/interfaces/bank.interface';
-import { initFlowbite } from 'flowbite';
+import { initFlowbite } from 'flowbite/lib/esm/components';
+import { DeletemodalComponent } from '../common/deletemodal/deletemodal.component';
+import { EditbankComponent } from 'app/modals/editbank/editbank.component';
 // import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-bank',
   standalone: true,
-  imports: [CommonModule, CreatebankComponent],
+  imports: [CommonModule, CreatebankComponent,DeletemodalComponent,EditbankComponent],
   templateUrl: './bank.component.html',
   styleUrl: './bank.component.css',
 })
@@ -28,7 +30,6 @@ export default class BankComponent {
 
   constructor(
     private bankService: BankService,
-    // private toastr: ToastrService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -44,12 +45,14 @@ export default class BankComponent {
     
   }
 
+  
+
   obtenerDatosPaginados(datos: Bank[], pagina: number, tamanoPagina: number): Bank[] {
 
    this.hasta= Math.min(this.paginaActual * tamanoPagina, this.banks.length)
     const inicio = (pagina - 1) * tamanoPagina;
     const fin = inicio + tamanoPagina;
-    console.log(datos);
+  
     
     return datos.slice(inicio, fin);
     
@@ -57,13 +60,17 @@ export default class BankComponent {
 
   async actualizarDatosPaginados() {
     
+    
     this.datosPaginados = this.obtenerDatosPaginados(
       this.banks,
       this.paginaActual,
       this.tamanoPagina
     );
-   
+
+    console.log(this.datosPaginados);
     
+
+
   }
   cambiarPagina(pagina: number) {
     this.paginaActual = pagina;
@@ -119,4 +126,86 @@ export default class BankComponent {
       );
     }
   }
+
+  deleteBank(id:number){
+    this.bankService.deleteMyBank(id).subscribe(
+      (response) => {
+        if (response.success) {
+          this.isSuccess = true
+          this.mensaje = response.message
+          setTimeout(() => {
+          this.isSuccess = false 
+        }, 3500);
+
+        var company = localStorage.getItem('company') || '';
+        var jsonCompany = JSON.parse(company);
+    
+        if (jsonCompany.id) {
+           this.getAllBankByCompany(jsonCompany.id);
+          
+        }
+        }else{
+          this.isError = true
+          this.mensaje = response.message
+          setTimeout(() => {
+          this.isError = false 
+        }, 3500);
+        }
+      },
+      (error) => {
+        
+        this.isError = true
+          this.mensaje = error.message
+          setTimeout(() => {
+          this.isError = false 
+        }, 3500);
+       
+      }
+    );
+  }
+
+  updateBank(bank:Bank){
+
+         var company = localStorage.getItem('company') || '';
+        var jsonCompany = JSON.parse(company);
+    
+        bank.companyId = jsonCompany.id
+    this.bankService.updateMyBank(bank).subscribe(
+      (response) => {
+        if (response.success) {
+          this.isSuccess = true
+          this.mensaje = response.message
+          setTimeout(() => {
+          this.isSuccess = false 
+        }, 3500);
+
+        var company = localStorage.getItem('company') || '';
+        var jsonCompany = JSON.parse(company);
+    
+        if (jsonCompany.id) {
+           this.getAllBankByCompany(jsonCompany.id);
+          
+        }
+        }else{
+          this.isError = true
+          this.mensaje = response.message
+          setTimeout(() => {
+          this.isError = false 
+        }, 3500);
+        }
+      },
+      (error) => {
+        
+        this.isError = true
+          this.mensaje = error.message
+          setTimeout(() => {
+          this.isError = false 
+        }, 3500);
+       
+      }
+    );
+
+  }
+
+
 }

@@ -20,7 +20,7 @@ export class CreatebankComponent {
     id: 0,
     accountNumber: '',
     name: '',
-    bankselectedId: 0,
+    bankSelectedID: 0,
     companyId: 0
   }
   public bancos:Bank[]=[]
@@ -49,13 +49,13 @@ export class CreatebankComponent {
     this.createBank.emit(this.nuevoBanco)
   }
 
-  abrirModal() {
-    this.modal?.show();
-  }
+  // abrirModal() {
+  //   this.modal?.show();
+  // }
 
-  cerrarModal() {
-    this.modal?.hide(); 
-  }
+  // cerrarModal() {
+  //   this.modal?.hide(); 
+  // }
 
  
 }
