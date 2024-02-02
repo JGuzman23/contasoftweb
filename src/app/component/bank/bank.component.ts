@@ -27,6 +27,7 @@ export default class BankComponent {
   paginaActual = 1;
   tamanoPagina = 8;
   hasta =0
+  values = '';
 
   constructor(
     private bankService: BankService,
@@ -45,6 +46,20 @@ export default class BankComponent {
     
   }
 
+  buscador(valor:any){
+   
+
+    if(valor){
+      this.datosPaginados = this.banks.filter(x=>x.accountNumber.toLowerCase().includes(valor.target.value.toLowerCase()))
+
+    }else{
+      console.log();
+      
+       this.actualizarDatosPaginados()
+    }
+   
+    
+  }
   
 
   obtenerDatosPaginados(datos: Bank[], pagina: number, tamanoPagina: number): Bank[] {
