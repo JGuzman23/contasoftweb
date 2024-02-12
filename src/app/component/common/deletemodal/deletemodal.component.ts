@@ -11,6 +11,8 @@ import { Modal } from 'flowbite';
 })
 export class DeletemodalComponent {
   @Input() index: number = 0;
+  @Input() mensaje: string = '';
+
   @Output() eliminar: EventEmitter<number> = new EventEmitter<number>();
 
   async ngOnInit(): Promise<void> {
@@ -81,7 +83,7 @@ export class DeletemodalComponent {
    
   }
 
-  eliminarBanco(){
+  eliminarBTN(){
     this.hidemodal(this.index)
     this.eliminar.emit(this.index)
   }

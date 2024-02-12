@@ -47,45 +47,29 @@ export default class BankComponent {
   }
 
   buscador(valor:any){
-   
 
     if(valor){
       this.datosPaginados = this.banks.filter(x=>x.accountNumber.toLowerCase().includes(valor.target.value.toLowerCase()))
-
     }else{
-      console.log();
-      
+
        this.actualizarDatosPaginados()
-    }
-   
-    
+    } 
   }
-  
 
   obtenerDatosPaginados(datos: Bank[], pagina: number, tamanoPagina: number): Bank[] {
 
    this.hasta= Math.min(this.paginaActual * tamanoPagina, this.banks.length)
     const inicio = (pagina - 1) * tamanoPagina;
     const fin = inicio + tamanoPagina;
-  
-    
     return datos.slice(inicio, fin);
-    
   }
 
   async actualizarDatosPaginados() {
-    
-    
     this.datosPaginados = this.obtenerDatosPaginados(
       this.banks,
       this.paginaActual,
       this.tamanoPagina
     );
-
-    console.log(this.datosPaginados);
-    
-
-
   }
   cambiarPagina(pagina: number) {
     this.paginaActual = pagina;

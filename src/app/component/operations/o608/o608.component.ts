@@ -1,44 +1,42 @@
 import { Component } from '@angular/core';
-import { initFlowbite } from 'flowbite';
+import { O608 } from 'app/interfaces/o608.interface';
+import { Create608Component } from 'app/modals/create608/create608.component';
 import { InvoiceService } from 'app/services/invoice.service';
-import { O606 } from 'app/interfaces/o606.interface';
+import FileSaver from 'file-saver';
+import { initFlowbite } from 'flowbite';
 import { DatePipe, UpperCasePipe} from '@angular/common';
-import { Create606Component } from 'app/modals/create606/create606.component';
-import * as FileSaver from 'file-saver';
-
-
 
 
 @Component({
-  selector: 'app-o606',
+  selector: 'app-o608',
   standalone: true,
-  imports: [Create606Component,DatePipe],
-  templateUrl: './o606.component.html',
-  styleUrl: './o606.component.css'
+  imports: [Create608Component,DatePipe],
+  templateUrl: './o608.component.html',
+  styleUrl: './o608.component.css'
 })
-export class O606Component {
-
-  public o606s:O606[]=[]
+export class O608Component {
+  public o608s:O608[]=[]
   public isError: boolean = false
   public isSuccess: boolean = false
   public mensaje =''
   public jsonCompany:any
 
-  datosPaginados: O606[] = [];
+  constructor(private invoiceService: InvoiceService) {}
+
+  datosPaginados: O608[] = [];
   paginaActual = 1;
   tamanoPagina = 8;
   hasta =0
-  constructor(private invoiceService: InvoiceService) {}
   async ngOnInit(): Promise<void> {
     initFlowbite();
 
-    this.getAll606();
+    this.getAll608();
   
   }
 
-  obtenerDatosPaginados(datos: O606[], pagina: number, tamanoPagina: number): O606[] {
+  obtenerDatosPaginados(datos: O608[], pagina: number, tamanoPagina: number): O608[] {
 
-    this.hasta= Math.min(this.paginaActual * tamanoPagina, this.o606s.length)
+    this.hasta= Math.min(this.paginaActual * tamanoPagina, this.o608s.length)
      const inicio = (pagina - 1) * tamanoPagina;
      const fin = inicio + tamanoPagina;
      console.log(datos);
@@ -51,7 +49,7 @@ export class O606Component {
     
      
      this.datosPaginados = this.obtenerDatosPaginados(
-       this.o606s,
+       this.o608s,
        this.paginaActual,
        this.tamanoPagina
      );
@@ -62,19 +60,17 @@ export class O606Component {
      this.paginaActual = pagina;
      this.actualizarDatosPaginados();
    }
- 
 
-
-  getAll606(){
+  getAll608(){
     var company = localStorage.getItem('company') || '';
     this.jsonCompany = JSON.parse(company);
     if (this.jsonCompany) {
       
-    this.invoiceService.GetMy606s(this.jsonCompany.id).subscribe(
+    this.invoiceService.GetMy608s(this.jsonCompany.id).subscribe(
       (response)=>{
-        this.o606s = response.data
-        console.log(this.o606s);
+        console.log(response.data);
         
+        this.o608s = response.data
         this.actualizarDatosPaginados()
         
       },(error)=>{
@@ -84,10 +80,9 @@ export class O606Component {
     }
   }
 
-  Generar606(anomes:string){
-  
-    
-    this.invoiceService.Generar606(anomes).subscribe(
+
+  Generar608(anomes:string){
+    this.invoiceService.Generar608(anomes).subscribe(
       (response)=>{
         
         if (response.success) {
@@ -97,7 +92,7 @@ export class O606Component {
           this.isSuccess = false 
         }, 3500);
 
-        this.getAll606();
+        this.getAll608();
         }else{
           this.isError = true
           this.mensaje = response.message
@@ -110,10 +105,13 @@ export class O606Component {
 
       }
     )
-  }
 
-  descargarxlsx606(id:number,formato:number){
-    this.invoiceService.descargar606(id,formato).subscribe(
+  }
+  descargarxlsx608(id:number,formato:number){
+
+    console.log('el id',id);
+    
+    this.invoiceService.descargar608(id,formato).subscribe(
       (response)=>{
         console.log(response);
         
@@ -172,9 +170,9 @@ export class O606Component {
 
     return new Blob(byteArrays, {type: contentType});
 }
-  descargartxt606(id:number,formato:number,anomes:string){
+  descargartxt608(id:number,formato:number,anomes:string){
 
-    this.invoiceService.descargar606(id,formato).subscribe(
+    this.invoiceService.descargar608(id,formato).subscribe(
       (response)=>{
         const contenido = response.data;
 
@@ -183,7 +181,7 @@ export class O606Component {
     console.log(blob);
     
         // Utilizar FileSaver para guardar el Blob como un archivo
-        FileSaver.saveAs(blob, `606-${this.jsonCompany.name}- ${anomes}.txt`);
+        FileSaver.saveAs(blob, `608-${this.jsonCompany.name}- ${anomes}.txt`);
 
         if (response.success) {
           this.isSuccess = true

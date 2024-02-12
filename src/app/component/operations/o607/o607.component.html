@@ -4,9 +4,7 @@
     <div
       class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden"
     >
-      <p class="ml-5 mt-6 text-lg font-normal text-gray-500 dark:text-white">
-        Listado de 607
-      </p>
+    
 
       @if (isError)
       {
@@ -38,7 +36,7 @@
       <div
         class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4"
       >
-        <div class="w-full md:w-1/2">
+        <!-- <div class="w-full md:w-1/2">
           <form class="flex items-center">
             <label for="simple-search" class="sr-only">Buscar</label>
             <div class="relative w-full">
@@ -68,9 +66,11 @@
               />
             </div>
           </form>
-        </div>
+        </div> -->
 
-      
+        <p class="ml-5  text-lg font-normal text-gray-500 dark:text-white">
+          Listado de 607
+        </p>
 
         <div
           class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0"
@@ -95,6 +95,8 @@
             <tr>
               <th scope="col" class="px-4 py-3">Año Mes</th>
               <th scope="col" class="px-4 py-3">Cantidad de Registros</th>
+              <th scope="col" class="px-4 py-3">Total Monto Facturado</th>
+              <th scope="col" class="px-4 py-3">Total ITBIS Facturado</th>
               <th scope="col" class="px-4 py-3">Fecha de Creacion</th>
               <th scope="col" class="px-4 py-3 flex justify-center ">Acciones</th>
             </tr>
@@ -109,6 +111,9 @@
                 {{o607.yearMonth}}
               </th>
               <td class="px-4 py-3">{{o607.amount}}</td>
+              <td class="px-4 py-3">{{o607.invoicedAmount}}</td>
+
+              <td class="px-4 py-3">{{o607.itbisTotal}}</td>
               <td class="px-4 py-3">{{o607.createDate|date:'dd/MM/yyyy'}}</td>
 
               <td class="px-4 py-3 flex items-center justify-center">

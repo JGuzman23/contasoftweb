@@ -18,20 +18,28 @@ export class LoginComponent {
     email: '',
     password: '',
   }
+  loading=false
   public mostrar: boolean = false
   public mensaje =''
  
 
   login() {
+
+    this.loading=true
+
     this.authService
       .login(this.user.email, this.user.password)
       .subscribe((res) => {
         if (res.success) {
+          this.loading=false
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('userID', res.data.id);
           this.router.navigateByUrl('');
+          
         } else {
+          this.loading=false
           this.mostrar = true
+
           this.mensaje = res.message
           setTimeout(() => {
             this.mostrar = false 

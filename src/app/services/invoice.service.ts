@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { InvoiceBill } from 'app/interfaces/bill.interface';
 import { InvoiceIncome } from 'app/interfaces/income.interface';
+import { VoidInvoice } from 'app/interfaces/void.interface';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
@@ -34,6 +35,16 @@ export class InvoiceService {
       this.httpOptions
     );
   }
+  updateInvoice607(model: InvoiceIncome): Observable<any> {
+    return this.http.put<any>(
+      `${this.apiUrl}/Invoice/invoice607/${model.id}`,
+      model,
+      this.httpOptions
+    );
+  }
+  deleteInvoiceIncome(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/Invoice/invoice607/${id}`);
+  }
 
   Generar607(anomes:string): Observable<any> {
     var company = localStorage.getItem('company') || '';
@@ -49,7 +60,7 @@ export class InvoiceService {
 
   descargar607(o607id:number,formato:number): Observable<any> {
     let data={
-      O607Id:o607id,
+      id:o607id,
       formato:formato
     }
 
@@ -78,6 +89,18 @@ export class InvoiceService {
     );
   }
 
+  updateInvoice606(model: InvoiceBill): Observable<any> {
+    return this.http.put<any>(
+      `${this.apiUrl}/Invoice/invoice606/${model.id}`,
+      model,
+      this.httpOptions
+    );
+  }
+  deleteInvoiceBill(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/Invoice/invoice606/${id}`);
+  }
+
+
   Generar606(anomes:string): Observable<any> {
     var company = localStorage.getItem('company') || '';
     var jsonCompany = JSON.parse(company);
@@ -92,12 +115,40 @@ export class InvoiceService {
 
   descargar606(o606id:number,formato:number): Observable<any> {
     let data={
-      O606Id:o606id,
+      id:o606id,
       formato:formato
     }
 
     return this.http.post<any>(`${this.apiUrl}/Invoice/descargar/606`,data,this.httpOptions);
   }
 
+  // operacion 608
 
+  anular(model:VoidInvoice): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/Invoice/anular`,model,this.httpOptions);
+  }
+ 
+  GetMy608s(companyId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/Invoice/608/${companyId}`);
+  }
+  Generar608(anomes:string): Observable<any> {
+    var company = localStorage.getItem('company') || '';
+    var jsonCompany = JSON.parse(company);
+    let data={
+      companyID:jsonCompany.id,
+      anomes:anomes,
+      rnc:jsonCompany.rnc
+    }
+    
+    return this.http.post<any>(`${this.apiUrl}/Invoice/608`,data,this.httpOptions);
+  }
+
+  descargar608(o606id:number,formato:number): Observable<any> {
+    let data={
+      id:o606id,
+      formato:formato
+    }
+
+    return this.http.post<any>(`${this.apiUrl}/Invoice/descargar/608`,data,this.httpOptions);
+  }
 }

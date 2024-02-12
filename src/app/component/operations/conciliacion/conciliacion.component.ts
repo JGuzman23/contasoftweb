@@ -34,6 +34,7 @@ export class ConciliacionComponent {
     if(jsonCompany.id){
       this.getAllTransactionByCompany(jsonCompany.id)
     }
+
   }
 
   getAllTransactionByCompany(companyId: number){
